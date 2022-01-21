@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('suratmasuk','Admin\SuratMasukController');
     Route::resource('suratkeluar','Admin\SuratKeluarController');
     Route::resource('kategori','Admin\KategoriController');
+    Route::get('/printPdf/{id}','Admin\DisposisiController@printReport');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Disposisi;
+use PDF;
 
 class DisposisiController extends Controller
 {
@@ -81,6 +82,15 @@ class DisposisiController extends Controller
         $data=Disposisi::findOrFail($id);
         $data->update($item);
         return redirect()->route('disposisi.index');
+    }
+
+    public function printReport($id)
+    {
+        $data['disposisi'] = Disposisi::find($id);
+
+        $pdf = PDF::loadView('pages.riport.disposisi', $data);
+        return $pdf->git();
+        // return view('pages.riport.disposisi', $data);
     }
 
     /**
