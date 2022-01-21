@@ -48,10 +48,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{route('disposisi.index')}}" class="nav-link">
               <i class="fas fa-terminal"></i>
               <p>
                 Surat Disposisi
+              </p>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a href="{{route('kategori.index')}}" class="nav-link">
+              <i class="fas fa-list-alt"></i>
+              <p>
+                Kategori
               </p>
             </a>
           </li>
