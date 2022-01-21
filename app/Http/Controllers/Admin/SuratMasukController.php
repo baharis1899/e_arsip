@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\SuratMasuk;
+use App\Kategori;
+
 
 class SuratMasukController extends Controller
 {
@@ -12,9 +15,14 @@ class SuratMasukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->has('seacrh')){
+            $data = SuratMasuk::where('title','LIKE','%'.$request->seacrh.'%')->get();
+        }else {
+            $data = SuratMasuk::all();
+        }
+        return view('pages.surat_masuk.index',['data'=>$data]);
     }
 
     /**

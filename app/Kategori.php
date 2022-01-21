@@ -12,5 +12,10 @@ class Kategori extends Model
     protected $fillable=[
         'name_category'
     ];
-    
+    public function kategorimasuk(){
+        return $this->hasMany(SuratMasuk::class,'category_id','id');
+    }
+    public function kategorikeluar(){
+
+    }
 }

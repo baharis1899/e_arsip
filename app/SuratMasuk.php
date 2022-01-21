@@ -11,4 +11,7 @@ class SuratMasuk extends Model
     protected $fillable=[
         'latter_code','title','description','sender','regarding','category_id','user_id','files'
     ];
+    public function kategori_id(){
+        return $this->belongsTo(Kategori::class,'category_id','id');
+    }
 }

@@ -14,7 +14,7 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
