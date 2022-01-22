@@ -16,6 +16,6 @@ class Kategori extends Model
         return $this->hasMany(SuratMasuk::class,'category_id','id');
     }
     public function kategorikeluar(){
-
+        return $this->hasMany(SuratKeluar::class,'category_id', 'id');
     }
 }

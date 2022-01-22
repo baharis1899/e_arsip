@@ -23,41 +23,38 @@
 </head>
 
 <body>
-    {{$disposisi}}
-    <div id=halaman>
-        <h3 id=judul>SURAT PERNYATAAN</h3>
 
-        <p>{{$disposisi->title}}</p>
+    <div id=halaman>
+        
+        
+        <h1>SMA Negeri 1 Petang </h1>
+        <h3 id=judul>SURAT Disposisi </h3>
+
+        
 
         <table>
             <tr>
-                <td style="width: 30%;">Nama</td>
+                <td style="width: 30%;">Prihal</td>
                 <td style="width: 5%;">:</td>
-                <td style="width: 65%;">Arbrian Abdul Jamal</td>
+                <td style="width: 65%;">{{$disposisi->title}}</td>
             </tr>
             <tr>
-                <td style="width: 30%;">Tempat, tanggal lahir</td>
+                <td style="width: 30%;">Isi Disposisi</td>
                 <td style="width: 5%;">:</td>
-                <td style="width: 65%;">Grobogan, 3 Maret 1993</td>
+                <td style="width: 65%;">{{$disposisi->description}}</td>
             </tr>
             <tr>
-                <td style="width: 30%; vertical-align: top;">Alamat</td>
-                <td style="width: 5%; vertical-align: top;">:</td>
-                <td style="width: 65%;">Kampung Sambak RT 01 RW 09 Kelurahan Danyang 
-                    Kecamatan Purwodadi Kabupaten Grobogan</td>
-            </tr>
-            <tr>
-                <td style="width: 30%;">Pekerjaan</td>
+                <td style="width: 30%;">Di tujukan pada</td>
                 <td style="width: 5%;">:</td>
-                <td style="width: 65%;">Guru</td>
+                <td style="width: 65%;">{{$disposisi->letter_maker}}</td>
             </tr>
         </table>
 
-        <p>menyatakan dengan sebenar-benarnya akan bersungguh-sungguh belajar dan bekerja.</p>
+        <p>Dengan dipertanggung jawabkan Kepada di bawah sebagai tandatangan dan waktu pembuatans</p>
 
-        <div style="width: 50%; text-align: left; float: right;">Purwodadi, 20 Januari 2020</div><br>
+        <div style="width: 50%; text-align: left; float: right;">{{$disposisi->created_at}}</div><br>
         <div style="width: 50%; text-align: left; float: right;">Yang bertanda tangan,</div><br><br><br><br><br>
-        <div style="width: 50%; text-align: left; float: right;">Arbrian Abdul Jamal</div>
+        <div style="width: 50%; text-align: left; float: right;">{{Auth::user()->name}}</div>
 
     </div>
 </body>

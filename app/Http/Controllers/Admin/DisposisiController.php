@@ -89,7 +89,7 @@ class DisposisiController extends Controller
         $data['disposisi'] = Disposisi::find($id);
 
         $pdf = PDF::loadView('pages.riport.disposisi', $data);
-        return $pdf->git();
+        return $pdf->download();
         // return view('pages.riport.disposisi', $data);
     }
 

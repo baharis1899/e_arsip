@@ -1,23 +1,23 @@
 @extends('layout.admin')
 @section('content')
-    <div class="content-header">
-      <div class="container-fluid">
+<div class="content-header">
+    <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0"> Kategori</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item "><a href="">Dashboard</a></li>
-              <li class="breadcrumb-item active">Kategori</li>
-            </ol>
-          </div><!-- /.col -->
+            <div class="col-sm-6">
+                <h1 class="m-0"> Kategori</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item "><a href="">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Kategori</li>
+                </ol>
+            </div><!-- /.col -->
         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+    </div><!-- /.container-fluid -->
+</div>
 
-    <form class="mt-4 row g-3" action="kategori" method="get">
+<form class="mt-4 row g-3" action="kategori" method="get">
     @csrf
     <div class="col-auto">
         <input style="width: 400px" type="text" class="form-control" id="seacrh" name="seacrh"
@@ -30,14 +30,14 @@
 </form>
 
 @php
-    $i=1;
+$i=1;
 @endphp
 <table class="table table-sm table-dark">
     <thead>
         <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Kategori</th>
-                    <th scope="col">Aksi</th>
+            <th scope="col">No</th>
+            <th scope="col">Nama Kategori</th>
+            <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -47,15 +47,15 @@
             <th scope="col">{{$item->name_category}}</th>
             <th scope="col">
                 <a href="{{route('kategori.edit',$item->id)}}" class="btn btn-info">
-                                                        <i class="fa fa-pencil-alt"></i>
-                                                    </a>
-                                                    <form action="{{route('kategori.destroy',$item->id)}}" method="post" class="d-inline" >
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button class="btn btn-danger">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                    </form>
+                    <i class="fa fa-pencil-alt"></i>
+                </a>
+                <form action="{{route('kategori.destroy',$item->id)}}" method="post" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </form>
             </th>
         </tr>
         @empty

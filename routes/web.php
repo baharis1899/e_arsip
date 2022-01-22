@@ -19,11 +19,21 @@ Auth::routes();
 
 // group admin
 Route::middleware('auth')->group(function () {
+    // CRUD
     Route::resource('disposisi', 'Admin\DisposisiController');
     Route::resource('suratmasuk','Admin\SuratMasukController');
     Route::resource('suratkeluar','Admin\SuratKeluarController');
     Route::resource('kategori','Admin\KategoriController');
+
+
+    // pdf disposisi
     Route::get('/printPdf/{id}','Admin\DisposisiController@printReport');
+
+    // download 
+    Route::get('/downloadmasuk/{id}','Admin\SuratMasukController@downloadfile');
+    Route::get('/downloadkeluar/{id}','Admin\SuratKeluarController@downloadkeluar');
+
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home');

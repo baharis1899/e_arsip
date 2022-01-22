@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
+use App\SuratKeluar;
+use App\Kategori;
+use File;
 
 class SuratKeluarController extends Controller
 {
@@ -12,19 +16,25 @@ class SuratKeluarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        if($request->has('seacrh')){
+            $data = SuratKeluar::with('kategori_id_keluar')->where('title','LIKE','%'.$request->seacrh.'%')->get();
+        }else {
+            $data = SuratKeluar::all();
+        }
+        return view('pages.surat_keluar.index',['data'=>$data]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function create()
     {
-        //
+        $kategori=Kategori::all();
+        return view('pages.surat_keluar.create',['kategori'=>$kategori]);
     }
 
     /**
@@ -35,7 +45,42 @@ class SuratKeluarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // dd($request->all());
+		// menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('files');
+      	        // nama file
+		echo 'File Name: '.$file->getClientOriginalName();
+		echo '<br>';
+      	        // ekstensi file
+		echo 'File Extension: '.$file->getClientOriginalExtension();
+		echo '<br>';
+      	        // real path
+		echo 'File Real Path: '.$file->getRealPath();
+		echo '<br>';
+      	        // ukuran file
+		echo 'File Size: '.$file->getSize();
+		echo '<br>';
+      	        // tipe mime
+		echo 'File Mime Type: '.$file->getMimeType();
+      	        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'file_pdf';
+                // upload file
+        $filename = $file->getClientOriginalName();
+		$files = $file->move($tujuan_upload, $filename);
+        // dd($files);
+        $dataarray = array (
+            'latter_code' => $request->latter_code,
+            'title' => $request->title,
+            'description' => $request->description,
+            'regarding' => $request->regarding,
+            'category_id' => $request->category_id,
+            'user_id' => Auth::user()->id,
+            'files' => $filename
+        );
+
+        SuratKeluar::create($dataarray);
+        return redirect()->route('suratkeluar.index');
     }
 
     /**
@@ -80,6 +125,16 @@ class SuratKeluarController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $data = SuratKeluar::find($id);
+
+        $destinationPath = 'file_pdf';
+        
+        File::delete($destinationPath.'/'.$data->files);
+        $data->delete();
+    }
+    public function downloadkeluar($id){
+        $data=SuratKeluar::find($id);
+        $path=public_path('file_pdf/'.$data->files);
+        return response()->download($path);
     }
 }

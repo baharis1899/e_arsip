@@ -55,14 +55,16 @@ $i=1;
             <th scope="col">{{$item->description}}</th>
             <th scope="col">{{$item->sender}}</th>
             <th scope="col">{{$item->regarding}}}</th>
-            <th scope="col">{{$item->category_id}}</th>
-            <th scope="col">{{$item->user_id}}</th>
+            <th scope="col">{{$item->kategori_id->name_category}}</th>
+            <th scope="col">{{$item->user_id=Auth::user()->name}}</th>
             <th scope="col">{{$item->files}}}</th>
             <th scope="col">
-                <a href="{{route('suratmasuk.edit',$item->id)}}" class="btn btn-info">
-                    <i class="fa fa-pencil-alt"></i>
+                <a href="/downloadmasuk/{{$item->id}}   " class="btn btn-info">
+                    <i class="fas fa-download"></i>
                 </a>
-                <a href="javascript:void(0)" class="btn btn-danger delete" data-url="{{route('suratmasuk.destroy', $item->id)}}" data-label="surat masuk"><i class="fa fa-trash"></i></a>
+                <a href="javascript:void(0)" class="btn btn-danger delete" 
+                data-url="{{route('suratmasuk.destroy', $item->id)}}" data-label="surat masuk">
+                    <i class="fa fa-trash"></i></a>
             </th>
         </tr>
         @empty

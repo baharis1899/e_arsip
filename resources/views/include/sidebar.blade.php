@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{route('suratkeluar.index')}}" class="nav-link">
               <i class="fas fa-envelope-square"></i>
               <p>
                 Arsip Surat Keluar   

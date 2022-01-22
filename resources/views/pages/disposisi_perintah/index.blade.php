@@ -54,8 +54,8 @@ $i=1;
                     <i class="fa fa-pencil-alt"></i>
                 </a>
 
-                <a href="/printPdf/{{$item->id}}" class="btn btn-info">
-                    <i class="fa fa-export"></i>
+                <a href="/printPdf/{{$item->id}}" class="btn btn-success">
+                    <i class="fas fa-print"></i>
                 </a>
 
                 <form action="{{route('disposisi.destroy',$item->id)}}" method="post" class="d-inline">

@@ -21,7 +21,7 @@ class SuratMasukController extends Controller
     public function index(Request $request)
     {
         if($request->has('seacrh')){
-            $data = SuratMasuk::where('title','LIKE','%'.$request->seacrh.'%')->get();
+            $data = SuratMasuk::with('kategori_id')->where('title','LIKE','%'.$request->seacrh.'%')->get();
         }else {
             $data = SuratMasuk::all();
         }
@@ -137,7 +137,11 @@ class SuratMasukController extends Controller
         
         File::delete($destinationPath.'/'.$data->files);
         $data->delete();
+    }
 
-
+    public function downloadfile($id){
+        $data=SuratMasuk::find($id);
+        $path=public_path('file_pdf/'.$data->files);
+        return response()->download($path);
     }
 }
