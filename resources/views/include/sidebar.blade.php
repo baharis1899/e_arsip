@@ -63,14 +63,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="fas fa-user-plus"></i>
-              <p>
-                Register User
-              </p>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
