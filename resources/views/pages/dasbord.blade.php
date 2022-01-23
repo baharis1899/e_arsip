@@ -20,7 +20,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>5</h3>
+                <h3>{{$masuk}}</h3>
                 <p>Surat Masuk</p>
               </div>  
               <div class="icon">
@@ -35,7 +35,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>2</h3>
+                <h3>{{$keluar}}</h3>
                 <p>Surat Keluar</p>
               </div>
               <div class="icon">
@@ -48,7 +48,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>2</h3>
+                <h3>{{$disposisi}}</h3>
                 <p>Disposisi</p>
               </div>
               <div class="icon">
