@@ -37,13 +37,11 @@
                 @endif
 
                 @if (session('message'))
-                <div class="alert alert-danger">
-                    <ul>
-                        <li>{{session('message')}}</li>
-                    </ul>
+                <div class="alert alert-success">
+                    {{session('message')}}
                 </div>
                 @endif
-                
+
                 @yield('content')
 
                 <!-- /.row (main row) -->
