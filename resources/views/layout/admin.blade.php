@@ -26,7 +26,24 @@
 
                 <!-- /.row -->
                 <!-- Main row -->
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
 
+                @if (session('message'))
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{{session('message')}}</li>
+                    </ul>
+                </div>
+                @endif
+                
                 @yield('content')
 
                 <!-- /.row (main row) -->
@@ -116,7 +133,6 @@
 
 
         });
-
     </script>
 </body>
 

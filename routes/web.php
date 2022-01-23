@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->get('/','DashboardController@index')->name('Homepage');
 
-Auth::routes();
+Auth::routes(['register => false']);
 
 // group admin
 Route::middleware('auth')->group(function () {
@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('suratmasuk','Admin\SuratMasukController');
     Route::resource('suratkeluar','Admin\SuratKeluarController');
     Route::resource('kategori','Admin\KategoriController');
+    Route::resource('user','Admin\UserController');
 
 
     // pdf disposisi

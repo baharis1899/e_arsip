@@ -63,6 +63,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('user.index')}}" class="nav-link">
+              <i class="fas fa-list-alt"></i>
+              <p>
+                Admin
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
