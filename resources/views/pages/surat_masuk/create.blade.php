@@ -52,9 +52,9 @@
                 required>
         </div>
         <div class="form-group">
-            <label for="category_id">Pilih Nama Kelas</label>
+            <label for="category_id">Pilih Kategori</label>
             <select name="category_id" id="category_id" class="form-control">
-                <option value="">pilih nama Kelas</option>
+                <option value="">pilih kategori</option>
                 @foreach($kategori as $data)
                 <option value="{{$data->id}}">
                     {{$data->name_category}}
