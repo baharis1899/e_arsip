@@ -20,7 +20,7 @@
     @csrf
     <div class="col-auto">
         <input style="width: 400px" type="text" class="form-control" id="seacrh" name="seacrh"
-            placeholder="Masukan Pencarian Disposisi" value="{{ old('seacrh') }}">
+            placeholder="Masukan Pencarian Judul Surat" value="{{ old('seacrh') }}">
     </div>
     <div class="col-auto">
         <input type="submit" value="Cari" class="btn btn-primary mb-3">
